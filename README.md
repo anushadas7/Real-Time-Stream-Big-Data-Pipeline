@@ -1,8 +1,9 @@
 # End-to-end Real Time Streaming Pipeline 
-This project is a real-time streaming pipeline that processes transaction data using Apache Kafka, Apache Spark, Hive, and MySQL technologies. The Berka dataset is utilized for simulating real-life transactions. The pipeline captures transaction data at random intervals and performs various transformations, aggregations, and reporting in real-time.
+This project is a real-time streaming pipeline that processes transaction data using Apache Kafka, Apache Spark, Hive, and MySQL technologies. The Berka dataset is utilized for simulating real-life transactions. We have stored the data in an AWS S3 bucket and created python code to send the data in random intervals to the Kafka Producer in order to simulate real-life transactions. The pipeline captures transaction data at random intervals and performs various transformations, aggregations, and reporting in real-time.
 
 ## About the Dataset
 The dataset used for this project is the Berka dataset, which is a real-world dataset containing financial transaction data. It was originally created for the purposes of a data mining competition organized by the Czech Technical University in Prague. The dataset represents a comprehensive record of financial transactions involving bank accounts and related information.
+
 
 ## Architecture
 
