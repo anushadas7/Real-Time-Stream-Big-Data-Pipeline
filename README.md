@@ -68,56 +68,71 @@ ADD FOREIGN KEY (<Table1_ID>) REFERENCES <Table2>(<Table2_ID>);```
 ```
     
 #### 2. Terminal 2 - Start Kafka Broker
-    ```
-    ~$ cd kafka/
-    ~/kafka$ bin/kafka-server-start.sh config/server.properties
-    ```
+
+```
+~$ cd kafka/
+~/kafka$ bin/kafka-server-start.sh config/server.properties
+```
+
 #### 3. Terminal 3 - Create Kafka topic
 First check if any topics exist on the broker (this should return nothing if you just started the server)
-    ```
-    ~/kafka$ bin/kafka-topics.sh --list --bootstrap-server localhost:9092
-    ```
+    
+```
+~/kafka$ bin/kafka-topics.sh --list --bootstrap-server localhost:9092
+```
+
 Now make a new topic named ```trans```
-    ```
-    ~/kafka$ bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic trans
-    ```
-    Run the first command again to make sure the topic was successfully created.
+
+```
+~/kafka$ bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic trans
+```
+
+Run the first command again to make sure the topic was successfully created.
     
-    Clear the terminal using ```clear```
+Clear the terminal using ```clear```
     
-    Start Hadoop cluster using the following commands
-    ```
-    ~$ hdfs namenode -format
-    ~$ start-dfs.sh
-    ```mi
+Start Hadoop cluster using the following commands
+```
+~$ hdfs namenode -format
+~$ start-dfs.sh
+```
 #### 4. Terminal 4 - Hive Metastore
-    ```
-    ~$ hive --service metastore
-    ```
+    
+```
+~$ hive --service metastore
+```
+
 #### 5. Terminal 5 - Hive
-In order to make sure the transformed data is being stored in Hive, we need to enter the Hive shell so that we can query the tables. Write a query to count the records in the tweets table. This should return nothing, but as we start the stream producer / consumer, we can use the up-arrow to run this query again to check if the data is coming through.
-    ```
-    ~$ hive
-    ...
-    hive> use default;
-    hive> select count(*) from tweets;
-    ```
+In order to make sure the transformed data is being stored in Hive, we need to enter the Hive shell so that we can query the tables. Write a query to count the records in the tweets table. This should return nothing, but as we start the stream producer/consumer, we can use the up-arrow to run this query again to check if the data is coming through.
+    
+```
+~$ hive
+...
+hive> use default;
+hive> select count(*) from tweets;
+```
+
 #### 6. Terminal 6 - Stream Producer
 In this new terminal, we are going to run the stream producer. Mine is named ```Kafka_Producer.py```, but just use whatever you named yours.
 
 If want to change the file permissions with ```chmod 755 Kafka_Producer.py```, you can run the stream producer with a simple ```./```
 
-   ```
-   ~$ ./tweet_stream.py
-   ```
-   This script should produce output to the console everytime a transaction is sent to the Kafka cluster, so you should be able to know whether or not the stream producer is working. Keep this running and open up a new terminal.
+```
+~$ ./tweet_stream.py
+```
+
+This script should produce output to the console everytime a transaction is sent to the Kafka cluster, so you should be able to know whether or not the stream producer is working. 
+
+Keep this running and open up a new terminal.
    
 #### 7. Terminal 7 - Stream Consumer + Spark Transformer
 Now we are ready to run the consumer. Since we want to run it as a Spark job, we'll use ```spark-submit```
-    ```
-    ~$ spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.0,mysql:mysql-connector-java:5.1.49 Spark_Transformer.py
-    ```
-    This should produce a lot of logging output. Keep this running as long as you want the example to be running.
+    
+```
+~$ spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.0,mysql:mysql-connector-java:5.1.49 Spark_Transformer.py
+```
+
+This should produce a lot of logging output. Keep this running as long as you want the example to be running.
 
 ### Did It Work?
 If you were able to run the producer script and the spark transformer, things should be working correctly! You should be able to see small dataframes being printed to the console in the terminal where the spark transformer is running.
