@@ -47,7 +47,7 @@ Before running the project, ensure you have the following components installed:
 
 #### MySQL
 1. Create a database named ```berka```. 
-2. In berka database, create tables ```account```,```client```, ```district``` , ```loan```, ```dispo```, ```card````: 
+2. In berka database, create tables ```account```,```client```, ```district``` , ```loan```, ```dispo```, ```card```: 
 3. Once the tables are created, build the parent-child relationships between them using ```ALTER TABLE <Table1>
 ADD FOREIGN KEY (<Table1_ID>) REFERENCES <Table2>(<Table2_ID>);```
 4. Exit mysql and run ```load_data.py```
@@ -118,7 +118,7 @@ In this new terminal, we are going to run the stream producer. Mine is named ```
 If want to change the file permissions with ```chmod 755 Kafka_Producer.py```, you can run the stream producer with a simple ```./```
 
 ```
-~$ ./tweet_stream.py
+~$ ./Kafka_Producer.py
 ```
 
 This script should produce output to the console everytime a transaction is sent to the Kafka cluster, so you should be able to know whether or not the stream producer is working. 
@@ -138,6 +138,9 @@ This should produce a lot of logging output. Keep this running as long as you wa
 If you were able to run the producer script and the spark transformer, things should be working correctly! You should be able to see small dataframes being printed to the console in the terminal where the spark transformer is running.
 
 Next, go back to "Terminal #5 (Hive shell), and run the select count(*) to see if the data is being written to Hive. If you get something greater than zero, it's working!
+
+## How My Terminals Looked
+
 
 ## Conclusion
 Congratulations! You now have a real-time streaming pipeline that processes transaction data using Kafka, Spark, Hive, and MySQL. This pipeline enables you to perform real-time aggregations and reporting, making it ideal for various data analysis scenarios. Happy streaming!
