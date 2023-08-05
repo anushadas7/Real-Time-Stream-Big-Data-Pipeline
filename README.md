@@ -24,10 +24,10 @@ The main components of the pipeline are as follows:
 ### Advantages of the Architecture
 
 1. Real-Time Processing: The architecture enables real-time processing of transaction data, allowing for up-to-date and dynamic reporting.
-Scalability: Kafka, Spark, and Hive are scalable technologies, capable of handling large-scale data processing and storage requirements.
-Flexibility: The use of Hive as a data warehouse allows for flexible querying and reporting on the aggregated data.
-Enrichment: The project enriches the transaction data with additional information from MySQL tables, enhancing the quality and depth of insights.
-Efficient Data Storage: Hive and Hadoop HDFS efficiently store and manage large-scale data, providing a reliable and robust data storage solution.
+2. Scalability: Kafka, Spark, and Hive are scalable technologies, capable of handling large-scale data processing and storage requirements.
+3. Flexibility: The use of Hive as a data warehouse allows for flexible querying and reporting on the aggregated data.
+4. Enrichment: The project enriches the transaction data with additional information from MySQL tables, enhancing the quality and depth of insights.
+5. Efficient Data Storage: Hive and Hadoop HDFS efficiently store and manage large-scale data, providing a reliable and robust data storage solution.
 
 This architecture provides a comprehensive and efficient solution for processing, analyzing, and reporting real-time transaction data, making it ideal for various data analysis scenarios.
 
@@ -35,13 +35,13 @@ This architecture provides a comprehensive and efficient solution for processing
 
 Before running the project, ensure you have the following components installed:
 
-Apache Kafka
-Apache Spark
-Hive
-MySQL
-Python
-PySpark
-AWS S3 Bucket loaded with the .csv files
+1. Apache Kafka
+2. Apache Spark
+3. Hive
+4. MySQL
+5. Python
+6. PySpark
+7. AWS S3 Bucket loaded with the .csv files
 
 ### Databases setup:
 
@@ -61,10 +61,8 @@ ADD FOREIGN KEY (<Table1_ID>) REFERENCES <Table2>(<Table2_ID>);```
 ## Running the Project:
 
 ### 1. Terminal 1 - Start Kafka Zookeeper
-    ```
-    ~$ cd kafka/
-    ~/kafka$ bin/zookeeper-server-start.sh config/zookeeper.properties
-    ```
+    ```~$ cd kafka/
+    ~/kafka$ bin/zookeeper-server-start.sh config/zookeeper.properties```
 #### 2. Terminal 2 - Start Kafka Broker
     ```
     ~$ cd kafka/
