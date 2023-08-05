@@ -16,7 +16,7 @@ The main components of the pipeline are as follows:
 
 <br>
 <p align="center">
-	<img src="img/data_pipeline.jpg" width='90%'><br><br>
+	<img src="img/architecture.png" width='90%'><br><br>
     <em>Image 1: Architecture of the Data Pipeline</em>
 </p>
 
