@@ -17,7 +17,7 @@ The main components of the pipeline are as follows:
 <br>
 <p align="center">
 	<img src="img/architecture.png" width='90%'><br><br>
-    <em>Image 1: Architecture of the Data Pipeline</em>
+    <em>Data Pipeline Architecture</em>
 </p>
 
 
@@ -142,6 +142,35 @@ Next, go back to "Terminal #5 (Hive shell), and run the select count(*) to see i
 
 ## How My Terminals Looked
 
+<br>
+<p align="center">
+	<img src="img/schemas.png" width='90%'><br><br>
+    <em>Schemas of tables printed in Spark-Shell</em>
+</p>
+
+<br>
+<p align="center">
+	<img src="img/stream.png" width='90%'><br><br>
+    <em>Live stream of data being sent to Kafka Consumer</em>
+</p>
+
+<br>
+<p align="center">
+	<img src="img/t1.png" width='90%'><br><br>
+    <em>Spark Transformating and Sending To Hive - 1</em>
+</p>
+
+<br>
+<p align="center">
+	<img src="img/t2.png" width='90%'><br><br>
+    <em>Spark Transformating and Sending To Hive - 2</em>
+</p>
+
+<br>
+<p align="center">
+	<img src="img/live.png" width='90%'><br><br>
+    <em>Demo</em>
+</p>
 
 ## Conclusion
 Congratulations! You now have a real-time streaming pipeline that processes transaction data using Kafka, Spark, Hive, and MySQL. This pipeline enables you to perform real-time aggregations and reporting, making it ideal for various data analysis scenarios. Happy streaming!
