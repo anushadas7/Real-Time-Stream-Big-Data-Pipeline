@@ -19,7 +19,9 @@ The main components of the pipeline are as follows:
     <em>Image 1: Architecture of the Data Pipeline</em>
 </p>
 
-###Advantages of the Architecture
+
+
+### Advantages of the Architecture
 
 1. Real-Time Processing: The architecture enables real-time processing of transaction data, allowing for up-to-date and dynamic reporting.
 Scalability: Kafka, Spark, and Hive are scalable technologies, capable of handling large-scale data processing and storage requirements.
@@ -29,7 +31,7 @@ Efficient Data Storage: Hive and Hadoop HDFS efficiently store and manage large-
 
 This architecture provides a comprehensive and efficient solution for processing, analyzing, and reporting real-time transaction data, making it ideal for various data analysis scenarios.
 
-###Prerequisites
+## Prerequisites
 
 Before running the project, ensure you have the following components installed:
 
@@ -56,9 +58,9 @@ ADD FOREIGN KEY (<Table1_ID>) REFERENCES <Table2>(<Table2_ID>);```
 3. Use ```ROW FORMAT DELIMITED FIELDS TERMINATED BY '\\|'```
 4. You can use ```SHOW TABLES;``` to double check that the table was created
 
-### Running the Project:
+## Running the Project:
 
-#### 1. Terminal 1 - Start Kafka Zookeeper
+### 1. Terminal 1 - Start Kafka Zookeeper
     ```
     ~$ cd kafka/
     ~/kafka$ bin/zookeeper-server-start.sh config/zookeeper.properties
