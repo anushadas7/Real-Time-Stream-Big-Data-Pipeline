@@ -61,8 +61,10 @@ ADD FOREIGN KEY (<Table1_ID>) REFERENCES <Table2>(<Table2_ID>);```
 ## Running the Project:
 
 ### 1. Terminal 1 - Start Kafka Zookeeper
+
     ```~$ cd kafka/
     ~/kafka$ bin/zookeeper-server-start.sh config/zookeeper.properties```
+    
 #### 2. Terminal 2 - Start Kafka Broker
     ```
     ~$ cd kafka/
